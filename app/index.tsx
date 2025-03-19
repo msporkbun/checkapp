@@ -61,7 +61,7 @@ export default function Login() {
 
       {/* Button: Link to signup screen */}
       <Link href="/signup">
-        <Text>Sign me Up!</Text>
+        <Text>Don’t have account? sign up</Text>
       </Link>
     </SafeAreaView>
   );

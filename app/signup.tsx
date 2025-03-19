@@ -106,7 +106,7 @@ export default function Signup() {
 
 
       <Link href="/">
-        <Text>Back to Login</Text>
+        <Text>Already have account? Go  login</Text>
       </Link>
     </SafeAreaView>
   );
