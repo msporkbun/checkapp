@@ -17,7 +17,6 @@ export function UserProvider(props: any) {
       password
     );
     setUser(loggedIn);
-    // toast("Welcome back. You are logged in");
   }
 
   async function logout() {
@@ -30,6 +29,7 @@ export function UserProvider(props: any) {
     await account.create(ID.unique(), email, password);
     await login(email, password);
     // toast("Account created");
+    return user;
   }
 
   async function init() {
