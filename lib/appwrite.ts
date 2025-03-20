@@ -1,15 +1,15 @@
-import { Platform } from 'react-native';
-import { Client, Databases } from 'react-native-appwrite';
+import { Platform } from "react-native";
+import { Client, Databases, Account } from "react-native-appwrite";
 
 const config = {
-  endpoint: 'https://cloud.appwrite.io/v1',
-  project: '67d91877002aab714ffe',
-  db: 'paper',
+  endpoint: "https://cloud.appwrite.io/v1",
+  project: "67d91877002aab714ffe",
+  db: "paper",
 
   // Collections for requests data
   col: {
-    users: 'users',
-    tasks: 'todos',
+    users: "users",
+    tasks: "todos",
   },
 };
 
@@ -22,15 +22,12 @@ const client = new Client()
 
 // Setting values for the client based on the platform
 switch (Platform.OS) {
-  case 'ios':
-    client.setPlatform('ait.edu.todocheck');
+  case "ios":
+    client.setPlatform("ait.edu.todocheck");
     break;
-  // case "android":
-  //   client.setPlatform("ait.edu.todocheck");
-  //   break;
-  // default:
-  //   client.setPlatform("web");
 }
 
-const database = new Databases(client);
-export { client, config, database };
+const databases = new Databases(client);
+const account = new Account(client);
+
+export { client, config, databases, account };
