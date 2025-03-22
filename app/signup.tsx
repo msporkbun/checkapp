@@ -6,7 +6,7 @@ import { Link } from "expo-router";
 import { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
-import { useUser } from "@/contexts/userContext";
+import { useUser, UserProvider } from "@/contexts/userContext";
 import { router } from "expo-router";
 
 export default function Signup() {
@@ -48,9 +48,9 @@ export default function Signup() {
     return validEmail && validPassword && password === confirmPassword;
   };
 
-  const signUp = async () => {
+  const register = async () => {
     const signup = await user.register(email, password);
-    router.navigate("/(tabs)");
+    router.navigate("/profile");
   };
 
   return (
@@ -84,7 +84,7 @@ export default function Signup() {
           />
           <Pressable
             // onPress={() => setShowPassword(!showPassword)}
-            onPress={() => signUp()}
+            onPress={() => register()}
           >
             <Ionicons
               name={showPassword ? "eye-off" : "eye"}
